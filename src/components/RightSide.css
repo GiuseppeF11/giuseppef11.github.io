@@ -1,0 +1,101 @@
+/* RIGHTSIDE */
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.right-side h1 {
+    background-color: rgba(15, 23, 42, 0);
+    padding: 10px 0;
+    margin: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 20px;
+}
+
+.about a {
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: 600;
+    transition: 0.1s linear;
+    &:hover {
+        color: #54d3d4;
+    }
+}
+
+.badge {
+    background-color: #183756;
+    color: #53ced0;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+/* ABOUT */
+
+.about {
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+/* EXPERIENCES */
+
+.experiences,
+.projects {
+    .link {
+        color: aliceblue;
+        font-weight: 600;
+        transition: 0.1s linear;
+        &:hover {
+            color: #54d3d4;
+        }
+    }
+}
+
+.card {
+    cursor: pointer;
+    transition: 0.3s linear;
+    border: 1px solid #183756;
+    border-radius: 15px;
+}
+
+.card .title {
+    transition: 0.3s linear;
+}
+
+@media (min-width: 1024px) {
+    .card:hover {
+        border: 1px solid aliceblue;
+        transform: scale(1.01);
+    }
+
+    .card:hover .title {
+        color: #53ced0;
+    }
+
+    .card:hover img {
+        border: 1px solid aliceblue;
+    }
+}
+
+.view-more {
+    display: inline-block;
+
+    .text {
+        border-bottom: 1px solid #183756;
+        transition: 0.3s linear;
+    }
+
+    &:hover {
+        .text {
+            border-bottom: 1px solid #53ced0;
+        }
+
+        .icon {
+            transition: 0.1s linear;
+            transform: translate(5px, 0px);
+        }
+    }
+}

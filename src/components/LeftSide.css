@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.role {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.sites {
+    font-size: 25px;
+    color: #9ca3af;
+
+    a {
+        transition: 0.2s ease-in-out;
+    }
+
+    a:hover {
+        color: white;
+    }
+}
