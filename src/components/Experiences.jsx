@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaLink } from "react-icons/fa6";
 import "./Experiences.css";
-import { FaArrowUpLong } from "react-icons/fa6";
 import { TbCertificate } from "react-icons/tb";
-import Boolean_Certificate from "../assets/documents/Certificato Boolean.jpg";
 import HDI_Certificate from "../assets/documents/HDI.jpeg";
-import Diploma from "../assets/documents/Diploma.jpg";
 
 const Experiences = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

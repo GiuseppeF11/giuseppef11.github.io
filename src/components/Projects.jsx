@@ -8,6 +8,8 @@ import CurrencyConverter from "../assets/projects/Currency Converter.png";
 import Fastbites from "../assets/projects/Fastbites.png";
 import Meridiano from "../assets/projects/Meridiano.png";
 import Portfolio from "../assets/projects/Portfolio.png";
+import VendorVideo from "../assets/projects/VendorVideo.gif";
+import DashboardVideo from "../assets/projects/DashboardVideo.gif";
 import MeteoApp from "../assets/projects/MeteoApp.png";
 import Spotify from "../assets/projects/Spotify.png";
 import Myflix from "../assets/projects/Myflix.png";
@@ -15,16 +17,13 @@ import Myflix from "../assets/projects/Myflix.png";
 function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [aosDisabled, setAosDisabled] = useState(false); // Stato per disattivare AOS
 
   useEffect(() => {
-    if (!aosDisabled) {
-      AOS.init({
-        duration: 800,
-        easing: "ease-in-out",
-        once: true,
-      });
-    }
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+    });
 
     const mediaQuery = window.matchMedia("(pointer: fine)");
     setIsDesktop(mediaQuery.matches);
@@ -33,19 +32,31 @@ function Projects() {
     mediaQuery.addEventListener("change", handleChange);
 
     return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [aosDisabled]);
-
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-    setAosDisabled(true);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null);
-    setAosDisabled(false);
-  };
+  }, []);
 
   const projects = [
+    {
+      date: "2025 - 2026",
+      name: "Vendor",
+      description:
+        "Qualifica, verifica della compliance, onboarding e monitoraggio delle performance dei fornitori gestite in un unico flusso centralizzato, sempre aggiornato e accessibile.",
+      link: "https://timeflow.it/soluzione/vendor-management-platform",
+      image: DashboardVideo,
+      documentations: [],
+      aos: "fade-up",
+      categories: ["Laravel", "Docker", "AWS", "Claude"],
+    },
+    {
+      date: "2025 - 2026",
+      name: "Workforce",
+      description:
+        "Gestione delle richieste dei clienti in un'unica piattaforma e sistema di matching per l'assegnazione delle risorse ai progetti",
+      link: "https://timeflow.it/soluzione/workforce-management-platform",
+      image: VendorVideo,
+      documentations: [],
+      aos: "fade-up",
+      categories: ["Laravel", "Docker", "AWS", "Claude"],
+    },
     {
       date: "2024",
       name: "MeteoApp",
@@ -157,57 +168,57 @@ function Projects() {
   return (
     <>
       {projects.map((project, index) => (
-        <a
-          data-aos={!aosDisabled ? project.aos : ""}
-          target="blank"
-          href={project.link}
-          key={index}
-          className={`project card grid grid-flow-col gap-5 my-5 p-8 transition-all duration-300 ${
-            isDesktop && hoveredIndex !== null && hoveredIndex !== index
-              ? "brightness-50"
-              : ""
-          }`}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="col-span-3 pt-2 max-xl:hidden h-28">
-            <img src={project.image} alt={project.name} />
-          </div>
-          <div className="col-span-4">
-            <h3 className="title color-white text-lg font-bold h-10 flex items-center mb-1 gap-1 max-md:justify-center lg:justify-start">
-              {project.name.length > 30
-                ? `${project.name.slice(0, 30)}...`
-                : project.name}{" "}
-              <span className="text-sm icon">
-                <MdOutlineArrowOutward />
-              </span>
-            </h3>
-            <p className="text-sm mb-3">{project.description}</p>
-            <div className="documentations flex flex-wrap text-center gap-3 mb-3 max-md:justify-center lg:justify-start">
-              {project.documentations.map((doc, i) => (
-                <a
-                  target="blank"
-                  href={doc.url}
-                  className="link whitespace-nowrap text-sm flex items-center gap-2"
-                  key={i}
-                >
-                  <FaLink /> {doc.name}
-                </a>
-              ))}
-            </div>
-            <div className="categories flex flex-wrap text-center gap-3 my-5 max-md:justify-center lg:justify-start">
-              {project.categories.map((category, i) => (
-                <span className="badge whitespace-nowrap text-xs" key={i}>
-                  {category}
-                </span>
-              ))}
-            </div>
-
-            <div className="col-span-2 pt-2 h-40 xl:hidden flex max-md:justify-center lg:justify-start">
+        <div data-aos="fade-up" key={index}>
+          <a
+            target="blank"
+            href={project.link}
+            className={`card grid grid-flow-col gap-5 my-5 p-8 transition-all duration-300 ${
+              isDesktop && hoveredIndex !== null && hoveredIndex !== index
+                ? "brightness-50"
+                : ""
+            }`}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <div className="col-span-3 pt-2 max-xl:hidden h-28">
               <img src={project.image} alt={project.name} />
             </div>
-          </div>
-        </a>
+            <div className="col-span-4">
+              <h3 className="title color-white text-lg font-bold h-10 flex items-center mb-1 gap-1 max-md:justify-center lg:justify-start">
+                {project.name.length > 30
+                  ? `${project.name.slice(0, 30)}...`
+                  : project.name}{" "}
+                <span className="text-sm icon">
+                  <MdOutlineArrowOutward />
+                </span>
+              </h3>
+              <p className="text-sm mb-3">{project.description}</p>
+              <div className="documentations flex flex-wrap text-center gap-3 mb-3 max-md:justify-center lg:justify-start">
+                {project.documentations.map((doc, i) => (
+                  <a
+                    target="blank"
+                    href={doc.url}
+                    className="link whitespace-nowrap text-sm flex items-center gap-2"
+                    key={i}
+                  >
+                    <FaLink /> {doc.name}
+                  </a>
+                ))}
+              </div>
+              <div className="categories flex flex-wrap text-center gap-3 my-5 max-md:justify-center lg:justify-start">
+                {project.categories.map((category, i) => (
+                  <span className="badge whitespace-nowrap text-xs" key={i}>
+                    {category}
+                  </span>
+                ))}
+              </div>
+
+              <div className="col-span-2 pt-2 h-40 xl:hidden flex max-md:justify-center lg:justify-start">
+                <img src={project.image} alt={project.name} />
+              </div>
+            </div>
+          </a>
+        </div>
       ))}
     </>
   );
