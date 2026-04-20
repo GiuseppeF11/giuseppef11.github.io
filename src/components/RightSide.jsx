@@ -22,7 +22,7 @@ const RightSide = () => {
     <>
       <div className="right-side lg:pt-20">
         {/* ABOUT */}
-        <section className="about color-gray max-lg:mb-10 lg:mb-28" id="about">
+        <section className="about color-gray max-lg:mb-10 lg:mb-28 lg:pt-5" id="about">
           <div>
             <h1
               data-aos="fade-right"
@@ -35,7 +35,7 @@ const RightSide = () => {
         </section>
 
         {/* STUDIES */}
-        <section className="studies" id="studies">
+        <section className="studies lg:pt-5" id="studies">
           <div>
             <h1
               data-aos="fade-right"
@@ -48,7 +48,7 @@ const RightSide = () => {
         </section>
 
         {/* EXPERIENCES */}
-        <section className="experiences" id="experiences">
+        <section className="experiences lg:pt-5" id="experiences">
           <div>
             <h1
               data-aos="fade-right"
@@ -72,7 +72,7 @@ const RightSide = () => {
         </section>
 
         {/* PROJECTS */}
-        <section className="projects" id="projects">
+        <section className="projects lg:pt-5" id="projects">
           <div>
             <h1
               data-aos="fade-right"
@@ -97,7 +97,7 @@ const RightSide = () => {
         </section>
 
         {/* CONTACT */}
-        <section className="contact mb-36" id="contact">
+        <section className="contact mb-36 lg:pt-5" id="contact">
           <div>
             <h1
               data-aos="fade-left"
