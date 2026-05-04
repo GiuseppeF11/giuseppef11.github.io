@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "./Projects.css";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaLink } from "react-icons/fa6";
@@ -11,12 +9,6 @@ function Projects() {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-
     const mediaQuery = window.matchMedia("(pointer: fine)");
     setIsDesktop(mediaQuery.matches);
 

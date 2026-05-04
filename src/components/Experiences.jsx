@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "./Experiences.css";
 import { experiences } from "../data/experiences";
 import { sortByEndDateDesc } from "../utils/dateUtils";
@@ -11,12 +9,6 @@ const Experiences = () => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-
     const mediaQuery = window.matchMedia("(pointer: fine)");
     setIsDesktop(mediaQuery.matches);
 

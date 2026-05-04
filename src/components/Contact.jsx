@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import emailjs from "emailjs-com";
-import Aos from "aos";
-import "aos/dist/aos.css";
+
+const inputClass =
+  "w-full p-3 rounded-lg bg-[#0f172a] border border-[#183756] placeholder-gray-500 text-aliceblue focus:outline-none focus:border-[#52ced0] transition-colors duration-200";
 
 const Contact = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []); 
-
   const [formData, setFormData] = useState({
     fullName: "",
     company: "",
@@ -20,10 +13,7 @@ const Contact = () => {
     message: "",
   });
 
-  const [notification, setNotification] = useState({
-    message: "",
-    type: "",
-  });
+  const [notification, setNotification] = useState({ message: "", type: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,27 +38,12 @@ const Contact = () => {
       )
       .then(
         () => {
-          setNotification({
-            message: "Email inviata con successo!",
-            type: "success",
-          });
-          setFormData({
-            fullName: "",
-            company: "",
-            email: "",
-            subject: "",
-            message: "",
-          });
-
-          // Nascondere la notifica dopo 3 secondi
+          setNotification({ message: "Email inviata con successo!", type: "success" });
+          setFormData({ fullName: "", company: "", email: "", subject: "", message: "" });
           setTimeout(() => setNotification({ message: "", type: "" }), 3000);
         },
         (error) => {
-          setNotification({
-            message: `Errore nell'invio: ${error.text}`,
-            type: "error",
-          });
-
+          setNotification({ message: `Errore nell'invio: ${error.text}`, type: "error" });
           setTimeout(() => setNotification({ message: "", type: "" }), 3000);
         }
       );
@@ -76,7 +51,7 @@ const Contact = () => {
 
   return (
     <div data-aos="fade-left">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3">
         <input
           type="text"
           name="fullName"
@@ -84,7 +59,7 @@ const Contact = () => {
           value={formData.fullName}
           onChange={handleChange}
           required
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          className={inputClass}
         />
         <input
           type="text"
@@ -92,7 +67,7 @@ const Contact = () => {
           placeholder="Nome Azienda (opzionale)"
           value={formData.company}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          className={inputClass}
         />
         <input
           type="email"
@@ -101,7 +76,7 @@ const Contact = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          className={inputClass}
         />
         <input
           type="text"
@@ -110,7 +85,7 @@ const Contact = () => {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          className={inputClass}
         />
         <textarea
           name="message"
@@ -118,27 +93,21 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600 h-32 resize-none"
-        ></textarea>
+          className={`${inputClass} h-32 resize-none`}
+        />
         <button
           type="submit"
-          className="w-full p-2 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded"
+          className="w-full p-3 bg-[#183756] hover:bg-[#52ced0] hover:text-[#0f172a] text-[#52ced0] font-bold rounded-lg border border-[#52ced0] transition-colors duration-200"
         >
           Invia Messaggio
         </button>
       </form>
 
-      {/* Notifica */}
       {notification.message && (
         <div
-          className={`mt-4 p-3 rounded text-white ${
-            notification.type === "success" ? "bg-green-500" : "bg-red-500"
-          } transition-opacity duration-300`}
-          style={{
-            opacity: notification.message ? 1 : 0,
-            maxWidth: "300px", 
-            margin: "10px auto",
-          }}
+          className={`mt-4 p-3 rounded-lg text-white text-sm ${
+            notification.type === "success" ? "bg-green-600" : "bg-red-600"
+          }`}
         >
           {notification.message}
         </div>

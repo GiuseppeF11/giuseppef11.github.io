@@ -11,6 +11,7 @@
     font-size: 15px;
     font-family: monospace;
     font-weight: 600;
+    letter-spacing: 0.08em;
 
     &:hover,
     &.active {

@@ -1,19 +1,9 @@
-import { useEffect } from "react";
 import "./LeftSide.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "./RightSide.css";
 import Navbar from "./Navbar";
 import Social from "./Social";
 
 const LeftSide = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
 
   return (
     <>

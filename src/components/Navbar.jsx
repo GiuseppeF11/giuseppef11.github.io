@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./Navbar.css";
-import "aos/dist/aos.css";
 
 const sections = [
   { id: "about", name: "Chi sono" },
@@ -14,37 +13,28 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleSections = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort(
-          (a, b) => b.intersectionRatio - a.intersectionRatio
-        );
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.25;
+      let current = sections[0].id;
 
-      if (visibleSections.length > 0) {
-        setActiveSection(visibleSections[0].target.id);
+      for (const { id } of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) {
+          current = id;
+        }
       }
-    },
-    {
-      rootMargin: "-30% 0px -30% 0px",
-      threshold: [0.1, 0.25, 0.5, 0.75],
-    }
-  );
 
-  sections.forEach(({ id }) => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
+      setActiveSection(current);
+    };
 
-  return () => observer.disconnect();
-}, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleClick = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -53,9 +43,7 @@ const Navbar = () => {
         <a
           key={section.id}
           onClick={() => handleClick(section.id)}
-          className={`route flex items-center ${
-            activeSection === section.id ? "active" : ""
-          }`}
+          className={`route flex items-center ${activeSection === section.id ? "active" : ""}`}
           style={{ cursor: "pointer" }}
         >
           <div className="line" />
