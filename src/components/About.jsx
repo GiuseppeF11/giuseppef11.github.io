@@ -22,9 +22,9 @@ const About = () => {
       </div>
 
       <div data-aos="fade-up">
-        <h2 className="text-white font-bold text-lg my-5">
+        <h1 className="section-heading">
           Competenze e Strumenti
-        </h2>
+        </h1>
         <div className="flex flex-wrap text-center gap-3 max-md:justify-center">
           {technologies.map((category, i) => (
             <span className="badge whitespace-nowrap text-xs" key={i}>

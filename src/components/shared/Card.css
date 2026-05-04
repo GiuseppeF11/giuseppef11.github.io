@@ -1,0 +1,96 @@
+/* ── Card base ── */
+.card {
+  cursor: pointer;
+  border: 1px solid #183756;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: radial-gradient(circle at 0% 50%, rgba(82, 206, 208, 0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card .title {
+  transition: color 0.25s;
+}
+
+@media (min-width: 1024px) {
+  .card:hover {
+    border-color: rgba(82, 206, 208, 0.45);
+    box-shadow: 0 8px 32px rgba(82, 206, 208, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .card:hover .title {
+    color: #52ced0;
+  }
+
+  .card:hover img {
+    border-color: rgba(82, 206, 208, 0.45);
+  }
+}
+
+/* ── Card con immagine di sfondo ── */
+
+/* ::after = immagine di sfondo (layer più in basso, riceve il blur) */
+.card--bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--tc-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: filter 0.35s ease;
+}
+
+.card--bg:hover::after {
+  filter: blur(5px);
+}
+
+/* ::before = overlay scuro (sopra l'immagine, sotto il contenuto) */
+.card--bg::before {
+  background: rgba(10, 18, 35, 0.834);
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+.card--bg:hover::before {
+  opacity: 0.8;
+}
+
+.card--bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── TimelineCard internals ── */
+.date {
+  font-size: 12px;
+}
+
+.line {
+  margin: 0 5px;
+  height: 0.5px;
+  width: 20px;
+}
+
+.documentations a {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}

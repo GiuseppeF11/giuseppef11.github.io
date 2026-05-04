@@ -38,12 +38,12 @@ function App() {
 
   return (
     <>
-      <div className="w-3/4 max-w-5xl m-auto">
+       <div className="w-3/4 max-w-5xl m-auto">
         <div className="grid lg:grid-cols-2  gap-5">
           <div className="left-side lg:h-screen lg:sticky lg:top-0">
             <LeftSide />
           </div>
-          <div className="right-side">
+          <div>
             <RightSide />
           </div>
 

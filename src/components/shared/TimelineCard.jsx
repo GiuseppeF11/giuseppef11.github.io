@@ -1,16 +1,15 @@
-function TimelineCard({ item, index, hoveredIndex, setHoveredIndex, isDesktop }) {
+import "./Card.css";
+
+function TimelineCard({ item }) {
   return (
     <div data-aos="fade-up">
       <a
         target="_blank"
         href={item.url}
         className={`card grid grid-flow-col gap-5 my-5 p-8 transition-all duration-300 ${
-          isDesktop && hoveredIndex !== null && hoveredIndex !== index
-            ? "brightness-50"
-            : ""
+          item.image ? "card--bg" : ""
         }`}
-        onMouseEnter={() => setHoveredIndex(index)}
-        onMouseLeave={() => setHoveredIndex(null)}
+        style={item.image ? { '--tc-bg': `url(${item.image})` } : undefined}
       >
         <div className="date w-40 font-semibold h-10 text-gray-500 flex items-center max-md:justify-center lg:justify-start overflow-hidden max-xl:hidden">
           {item.start}

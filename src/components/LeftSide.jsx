@@ -1,5 +1,4 @@
 import "./LeftSide.css";
-import "./RightSide.css";
 import Navbar from "./Navbar";
 import Social from "./Social";
 

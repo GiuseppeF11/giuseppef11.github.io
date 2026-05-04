@@ -1,102 +1,116 @@
-/* RIGHTSIDE */
+/* ═══════════════════════════════════════════
+   RightSide.css — aggiornato con section-heading
+   ═══════════════════════════════════════════ */
+
+/* ── sticky ── */
 .sticky {
-    position: -webkit-sticky;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.right-side {
+  min-height: 100vh;
+}
+
+/* ── Section heading (sostituisce il vecchio h1 plain) ── */
+.section-heading {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #52ced0 !important;
+  margin-bottom: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 0 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(82, 206, 208, 0.35), transparent);
+}
+
+@media (max-width: 1024px) {
+  .section-heading {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 50;
+    width: 100vw;
+    margin-left: -12.5vw;
+    padding: 12px 12.5vw !important;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    margin-bottom: 20px !important;
+  }
 }
 
-.right-side h1 {
-    background-color: rgba(15, 23, 42, 0);
-    padding: 10px 0;
-    margin: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-size: 20px;
-}
-
+/* ── About links ── */
 .about a {
-    cursor: pointer;
-    color: aliceblue;
-    font-weight: 600;
-    transition: 0.1s linear;
-    &:hover {
-        color: #54d3d4;
-    }
+  cursor: pointer;
+  color: aliceblue;
+  font-weight: 600;
+  transition: 0.1s linear;
+}
+.about a:hover {
+  color: #54d3d4;
 }
 
+/* ── About paragraphs ── */
+.about p {
+  margin-bottom: 20px;
+}
+
+/* ── Badge ── */
 .badge {
-    background-color: #183756;
-    color: #53ced0;
-    padding: 5px 15px;
-    border-radius: 15px;
-    letter-spacing: 0.04em;
+  background-color: #183756;
+  color: #53ced0;
+  padding: 5px 15px;
+  border-radius: 15px;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
 }
 
-/* ABOUT */
-
-.about {
-    p {
-        margin-bottom: 20px;
-    }
+.badge:hover {
+  border-color: rgba(82, 206, 208, 0.4);
 }
 
-/* EXPERIENCES */
-
-.experiences,
-.projects {
-    .link {
-        color: aliceblue;
-        font-weight: 600;
-        transition: 0.1s linear;
-        &:hover {
-            color: #54d3d4;
-        }
-    }
+/* ── Timeline / Project card links ── */
+.experiences .link,
+.projects .link {
+  color: aliceblue;
+  font-weight: 600;
+  transition: 0.1s linear;
 }
 
-.card {
-    cursor: pointer;
-    transition: 0.3s linear;
-    border: 1px solid #183756;
-    border-radius: 15px;
+.experiences .link:hover,
+.projects .link:hover {
+  color: #54d3d4;
 }
 
-.card .title {
-    transition: 0.3s linear;
-}
-
-@media (min-width: 1024px) {
-    .card:hover {
-        border-color: rgba(82, 206, 208, 0.45);
-        box-shadow: 0 0 28px rgba(82, 206, 208, 0.07);
-    }
-
-    .card:hover .title {
-        color: #53ced0;
-    }
-
-    .card:hover img {
-        border-color: rgba(82, 206, 208, 0.45);
-    }
-}
-
+/* ── View more link ── */
 .view-more {
-    display: inline-block;
+  display: inline-block;
+}
 
-    .text {
-        border-bottom: 1px solid #183756;
-        transition: 0.3s linear;
-    }
+.view-more .text {
+  border-bottom: 1px solid #183756;
+  transition: 0.3s linear;
+}
 
-    &:hover {
-        .text {
-            border-bottom: 1px solid #53ced0;
-        }
+.view-more:hover .text {
+  border-bottom: 1px solid #53ced0;
+}
 
-        .icon {
-            transition: 0.1s linear;
-            transform: translate(5px, 0px);
-        }
-    }
+.view-more:hover .icon {
+  transition: 0.1s linear;
+  transform: translate(5px, 0px);
 }

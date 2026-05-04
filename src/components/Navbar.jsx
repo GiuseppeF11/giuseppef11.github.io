@@ -3,8 +3,8 @@ import "./Navbar.css";
 
 const sections = [
   { id: "about", name: "Chi sono" },
-  { id: "studies", name: "Formazione" },
   { id: "experiences", name: "Esperienze" },
+  { id: "studies", name: "Formazione" },
   { id: "projects", name: "Progetti" },
   { id: "contact", name: "Contattami" },
 ];
