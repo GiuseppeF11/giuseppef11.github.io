@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./About.css";
+import { abouts } from "../data/about";
+import { technologies } from "../data/skills";
 
 const About = () => {
   useEffect(() => {
@@ -11,53 +13,6 @@ const About = () => {
       once: true,
     });
   }, []);
-
-  const abouts = [
-    {
-      text: "Nato a Catania il 10 dicembre 2000, sono sempre stato estremamente curioso. La mia curiosità ha trovato libero sfogo nella tecnologia e nelle sue mille sfaccettature",
-      links: [
-        { word: "Catania", url: "#" },
-        { word: "tecnologia", url: "#" },
-      ],
-    },
-    {
-      text: "Sono appassionato di sports ed e-sports , suono la chitarra, ma soprattutto mi piace fare tante escursioni a piedi, in bici o in moto va bene lo stesso! Vivendo in Sicilia tra mare e montagna le strade da percorrere non mancano!",
-      links: [
-        { word: "sports", url: "#" },
-        { word: "e-sports", url: "#" },
-        { word: "escursioni", url: "#" },
-        { word: "mare", url: "#" },
-        { word: "montagna", url: "#" },
-      ],
-    },
-    {
-      text: "Dal 2023 mi occupo di web-development come full-stack developer.",
-      links: [
-        { word: "web-development", url: "#" },
-        { word: "full-stack", url: "#" },
-        { word: "developer", url: "#" }
-      ],
-    },
-  ];
-
-  const tecnologies = [
-    "React.js",
-    "Vue.js",
-    "JavaScript",
-    "Laravel",
-    "PHP",
-    "SQL",
-    "MySQL",
-    "AWS",
-    "Docker",
-    "Python",
-    "HTML",
-    "CSS",
-    "SASS",
-    "GIT",
-    "Tailwind",
-    "Bootstrap"
-  ];
 
   return (
     <>
@@ -81,7 +36,7 @@ const About = () => {
           Competenze e Strumenti
         </h2>
         <div className="flex flex-wrap text-center gap-3 max-md:justify-center">
-          {tecnologies.map((category, i) => (
+          {technologies.map((category, i) => (
             <span className="badge whitespace-nowrap text-xs" key={i}>
               {category}
             </span>

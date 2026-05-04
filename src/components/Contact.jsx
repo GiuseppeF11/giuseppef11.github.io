@@ -34,17 +34,17 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_399qnfo", // Service ID
-        "template_wfwt1dx", // Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          name: formData.fullName, 
-          email: formData.email, 
+          name: formData.fullName,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
           company: formData.company,
           time: new Date().toLocaleString(),
         },
-        "xh52W1hySwx3Nh-Mq" // Public Key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
