@@ -24,7 +24,7 @@ export const experiences = [
     url: "https://marketing.timeflow.it/soluzione-timeflow?utm_source=Google+Ads&utm_medium=Search&utm_campaign=Lower&utm_id=Brand&utm_term=timeflow&utm_campaign=%5BFill_Blank_2024%5D_TimeFlow_Google_Search_IT_Ita_Lower_Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=7114086986&hsa_cam=21666716801&hsa_grp=166889050253&hsa_ad=712293741509&hsa_src=g&hsa_tgt=kwd-552597165568&hsa_kw=timeflow&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwtJ6_BhDWARIsAGanmKdi17Q9e7StW_uYz3RGTlaMJC5GM_4OtDddx8S-RKpBi4kiE22hRlIaAopvEALw_wcB",
     title: "Junior Backend Developer",
     agency: "Timeflow Srl",
-    details: "Piattaforma SaaS di Workforce e Vendor Management basata su AI per la ricerca, selezione e gestione delle risorse da parte per aziende e per fornitori di servizi professionali",
+    details: "Piattaforma SaaS di Workforce e Vendor Management basata su AI per la ricerca, selezione e gestione delle risorse per aziende e fornitori di servizi professionali",
     documentations: [],
     categories: ["PHP", "Laravel", "Docker", "AWS"],
     image: DashboardVideo

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import RightSide from "./components/RightSide.jsx";
 import LeftSide from "./components/LeftSide.jsx";
-import Social from "./components/Social.jsx";
 import "./App.css";
 
 function App() {
@@ -47,9 +46,6 @@ function App() {
             <RightSide />
           </div>
 
-          <div className="flex justify-between sites text-4xl md:text-5xl mb-28 lg:hidden max-md:px-5">
-            <Social></Social>
-          </div>
         </div>
       </div>
     </>

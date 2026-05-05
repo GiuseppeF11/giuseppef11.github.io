@@ -14,16 +14,20 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = window.innerHeight * 0.25;
-      let current = sections[0].id;
-
-      for (const { id } of sections) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= threshold) {
-          current = id;
-        }
+      // Se siamo in fondo alla pagina, attiva sempre l'ultima sezione
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 80;
+      if (nearBottom) {
+        setActiveSection(sections[sections.length - 1].id);
+        return;
       }
 
+      const threshold = window.innerHeight * 0.25;
+      let current = sections[0].id;
+      for (const { id } of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) current = id;
+      }
       setActiveSection(current);
     };
 
