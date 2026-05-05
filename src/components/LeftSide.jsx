@@ -6,8 +6,8 @@ const LeftSide = () => {
 
   return (
     <>
-      <section className="container pt-20">
-        <div className="tracking-wider">
+      <section className="container pt-14 md:pt-20 max-md:px-5">
+        <div className="tracking-wider max-md:text-center">
           <h1
             data-aos="fade-right"
             className="max-lg:text-4xl lg:text-5xl font-bold mb-3"

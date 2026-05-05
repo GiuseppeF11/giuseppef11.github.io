@@ -1,3 +1,6 @@
+# Claude private context
+.claude/
+
 # Logs
 logs
 *.log

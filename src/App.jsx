@@ -38,8 +38,8 @@ function App() {
 
   return (
     <>
-       <div className="w-3/4 max-w-5xl m-auto">
-        <div className="grid lg:grid-cols-2  gap-5">
+      <div className="w-full md:px-10 lg:w-3/4 lg:px-0 max-w-5xl lg:m-auto">
+        <div className="grid lg:grid-cols-2 gap-5">
           <div className="left-side lg:h-screen lg:sticky lg:top-0">
             <LeftSide />
           </div>
@@ -47,7 +47,7 @@ function App() {
             <RightSide />
           </div>
 
-          <div className="flex justify-between sites sm:max-md:text-3xl md:max-lg:text-5xl mb-28 lg:hidden">
+          <div className="flex justify-between sites text-4xl md:text-5xl mb-28 lg:hidden max-md:px-5">
             <Social></Social>
           </div>
         </div>

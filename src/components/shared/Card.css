@@ -58,7 +58,7 @@
 }
 
 .card--bg:hover::after {
-  filter: blur(5px);
+  filter: blur(10px);
 }
 
 /* ::before = overlay scuro (sopra l'immagine, sotto il contenuto) */

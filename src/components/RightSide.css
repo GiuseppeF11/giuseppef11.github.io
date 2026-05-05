@@ -37,18 +37,32 @@
   background: linear-gradient(to right, rgba(82, 206, 208, 0.35), transparent);
 }
 
-@media (max-width: 1024px) {
+/* ── Phone + Tablet (< 1024px): sticky heading con blur ── */
+@media (max-width: 1023px) {
   .section-heading {
     position: sticky;
     top: 0;
     z-index: 50;
-    width: 100vw;
-    margin-left: -12.5vw;
-    padding: 12px 12.5vw !important;
+    padding: 12px 0 !important;
     background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     margin-bottom: 20px !important;
+  }
+}
+
+/* ── Phone only (< 768px): heading centrato con linee simmetriche ── */
+@media (max-width: 767px) {
+  .section-heading {
+    padding: 12px 1.25rem !important;
+    justify-content: center !important;
+  }
+
+  .section-heading::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(82, 206, 208, 0.35));
   }
 }
 
@@ -66,6 +80,12 @@
 /* ── About paragraphs ── */
 .about p {
   margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .about p {
+    text-align: center;
+  }
 }
 
 /* ── Badge ── */

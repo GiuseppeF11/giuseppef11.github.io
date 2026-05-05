@@ -25,7 +25,7 @@ const About = () => {
         <h1 className="section-heading">
           Competenze e Strumenti
         </h1>
-        <div className="flex flex-wrap text-center gap-3 max-md:justify-center">
+        <div className="flex flex-wrap gap-3 max-md:justify-center">
           {technologies.map((category, i) => (
             <span className="badge whitespace-nowrap text-xs" key={i}>
               {category}
