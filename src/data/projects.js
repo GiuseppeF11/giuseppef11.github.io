@@ -15,7 +15,7 @@ import Meridiano from "../assets/projects/Meridiano.png";
 import Portfolio from "../assets/projects/Portfolio.png";
 import VendorVideo from "../assets/projects/VendorVideo.gif";
 import DashboardVideo from "../assets/projects/DashboardVideo.gif";
-import MeteoApp from "../assets/projects/MeteoApp.png";
+import MeteoApp from "../assets/projects/meteo-app-tutorial.gif";
 import Spotify from "../assets/projects/Spotify.png";
 import Myflix from "../assets/projects/Myflix.png";
 
