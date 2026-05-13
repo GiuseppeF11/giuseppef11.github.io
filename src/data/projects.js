@@ -49,7 +49,7 @@ export const projects = [
     image: MeteoApp,
     documentations: [
       { name: "React Icons", url: "https://react-icons.github.io/react-icons/" },
-      { name: "Tailwind", url: "https://tailwindcss.com/" },
+      { name: "OpenStreetMap", url: "https://www.openstreetmap.org/#map=6/42.09/12.56" },
       { name: "Weather API", url: "https://www.visualcrossing.com/weather-api/" },
     ],
     categories: ["React.js"],
