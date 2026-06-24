@@ -17,9 +17,24 @@ import VendorVideo from "../assets/projects/VendorVideo.gif";
 import DashboardVideo from "../assets/projects/DashboardVideo.gif";
 import MeteoApp from "../assets/projects/meteo-app-tutorial.gif";
 import Spotify from "../assets/projects/Spotify.png";
-import Myflix from "../assets/projects/Myflix.png";
+import Cinova from "../assets/projects/Cinova.gif";
 
 export const projects = [
+  {
+    date: "2026",
+    name: "Cinova",
+    description:
+      "App per esplorare film e serie TV, guardare i trailer, scoprire il cast e gestire una lista preferiti personale con autenticazione.",
+    link: "https://cinova-livid-theta.vercel.app/",
+    image: Cinova,
+    documentations: [
+      { name: "The Movie DB", url: "https://www.themoviedb.org/" },
+      { name: "Supabase", url: "https://supabase.com/" },
+      { name: "Bootstrap", url: "https://getbootstrap.com/" },
+      { name: "FontAwesome", url: "https://fontawesome.com/" },
+    ],
+    categories: ["Vue.js", "JavaScript", "SCSS", "Supabase"],
+  },
   {
     date: "2025 - 2026",
     name: "Vendor",
@@ -81,21 +96,6 @@ export const projects = [
       { name: "FontAwesome", url: "https://fontawesome.com/" },
     ],
     categories: ["Laravel", "Blade"],
-  },
-  {
-    date: "2024",
-    name: "Myflix",
-    description:
-      "Sito per consultare la più vasta libreria cinematografica, visualizzare i rispettivi trailer e creare una lista preferiti.",
-    link: "https://myflix-livid-theta.vercel.app/",
-    image: Myflix,
-    documentations: [
-      { name: "The Movie DB", url: "https://www.themoviedb.org/" },
-      { name: "Swiper", url: "https://swiperjs.com/" },
-      { name: "Bootstrap", url: "https://getbootstrap.com/" },
-      { name: "FontAwesome", url: "https://fontawesome.com/" },
-    ],
-    categories: ["Vue.js", "HTML", "CSS", "JavaScript"],
   },
   {
     date: "2024",
