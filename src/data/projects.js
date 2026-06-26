@@ -18,8 +18,22 @@ import DashboardVideo from "../assets/projects/DashboardVideo.gif";
 import MeteoApp from "../assets/projects/meteo-app-tutorial.gif";
 import Spotify from "../assets/projects/Spotify.png";
 import Cinova from "../assets/projects/Cinova.gif";
+import GF1 from "../assets/projects/GF1.png";
 
 export const projects = [
+  {
+    date: "2026",
+name: "GF1",
+description:
+  "Tutto quello che ti serve sulla Formula 1. Classifiche, risultati e statistiche a portata di mano.",
+link: "https://gf-1-rho.vercel.app/",
+image: GF1,
+documentations: [
+  { name: "OpenF1 API", url: "https://openf1.org/" },
+  { name: "Jolpica-F1 API", url: "https://api.jolpi.ca/" },
+],
+categories: ["React", "JavaScript", "Tailwind CSS", "Vite"]
+  },
   {
     date: "2026",
     name: "Cinova",
