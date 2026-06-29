@@ -30,7 +30,7 @@ const Social = ({ compact = false }) => {
       {socials.map(({ name, Icon, url }) => (
         <a
           key={name}
-          data-aos="fade-right"
+          data-aos="fade-up"
           target="_blank"
           rel="noreferrer"
           href={url}

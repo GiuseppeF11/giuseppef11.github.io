@@ -11,3 +11,51 @@
     margin-bottom: 20px;
 }
 
+.skills-carousel {
+  position: relative;
+  overflow: clip;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 24px;
+}
+
+/* Fade ai bordi — solo mobile */
+@media (max-width: 1023px) {
+  .skills-carousel::before,
+  .skills-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .skills-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #0f172a, transparent);
+  }
+
+  .skills-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #0f172a, transparent);
+  }
+}
+
+.carousel-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: carousel-scroll 20s linear infinite;
+}
+
+.skills-carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+

@@ -1,0 +1,49 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid #183756;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottom-nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 10px 4px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav-tab.active {
+  color: #52ced0;
+}
+
+.bottom-nav-tab:active {
+  opacity: 0.6;
+}
+
+.bottom-nav-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.bottom-nav-label {
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}

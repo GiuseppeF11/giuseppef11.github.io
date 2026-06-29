@@ -18,14 +18,21 @@ function Projects() {
     );
   };
 
-  // Chiude il modal con Escape
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") setModal(null); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const filtered = projects.filter((p) => {
+  useEffect(() => {
+    document.body.style.overflow = modal ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [modal]);
+
+  const endYear = (date) => parseInt(date.split(" - ").pop());
+  const sorted = [...projects].sort((a, b) => endYear(b.date) - endYear(a.date));
+
+  const filtered = sorted.filter((p) => {
     const matchTag = activeTags.length === 0 || activeTags.some((t) => p.categories.includes(t));
     const q = search.toLowerCase().trim();
     const matchSearch =

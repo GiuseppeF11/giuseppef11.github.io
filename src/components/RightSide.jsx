@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "./RightSide.css";
 import About from "./About";
 import Projects from "./Projects";
@@ -6,26 +7,51 @@ import Studies from "./Studies";
 import Contact from "./Contact";
 import { MdArrowForward } from "react-icons/md";
 
-const RightSide = () => {
+const SECTION_ORDER = ["about", "experiences", "studies", "projects", "contact"];
+
+const RightSide = ({ mobileSection = "about", onSectionChange }) => {
+  const touchX = useRef(0);
+  const touchY = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchX.current = e.touches[0].clientX;
+    touchY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    const dx = touchX.current - e.changedTouches[0].clientX;
+    const dy = touchY.current - e.changedTouches[0].clientY;
+    if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 50) return;
+    const idx = SECTION_ORDER.indexOf(mobileSection);
+    if (dx > 0 && idx < SECTION_ORDER.length - 1) onSectionChange(SECTION_ORDER[idx + 1]);
+    if (dx < 0 && idx > 0) onSectionChange(SECTION_ORDER[idx - 1]);
+  };
+
+  const show = (id) => mobileSection === id ? "" : "hidden lg:block";
+
   return (
-    <div className="right-side lg:pt-14">
+    <div
+      className="right-side lg:pt-14 max-lg:pb-20"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
 
       {/* ABOUT */}
-      <section className="about color-gray max-lg:mb-10 lg:mb-16 lg:pt-5" id="about">
-        <h1 data-aos="fade-right" className="section-heading">Chi sono</h1>
+      <section className={`about color-gray max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("about")}`} id="about">
+        <h1 data-aos="fade-up" className="section-heading">Chi sono</h1>
         <div className="max-md:px-5">
           <About />
         </div>
       </section>
 
       {/* EXPERIENCES */}
-      <section className="experiences max-lg:mb-10 lg:mb-16 lg:pt-5" id="experiences">
-        <h1 data-aos="fade-right" className="section-heading">Esperienze</h1>
+      <section className={`experiences max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("experiences")}`} id="experiences">
+        <h1 data-aos="fade-up" className="section-heading">Esperienze</h1>
         <div className="max-md:px-5">
           <Experiences />
           <div className="py-6 flex items-center justify-center md:justify-start">
             <a
-              data-aos="fade-right"
+              data-aos="fade-up"
               target="_blank"
               rel="noreferrer"
               href="https://www.linkedin.com/in/giuseppe-failla-96a759194/"
@@ -39,21 +65,21 @@ const RightSide = () => {
       </section>
 
       {/* STUDIES */}
-      <section className="studies max-lg:mb-10 lg:mb-16 lg:pt-5" id="studies">
-        <h1 data-aos="fade-right" className="section-heading">Formazione</h1>
+      <section className={`studies max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("studies")}`} id="studies">
+        <h1 data-aos="fade-up" className="section-heading">Formazione</h1>
         <div className="max-md:px-5">
           <Studies />
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section className="projects max-lg:mb-10 lg:mb-16 lg:pt-5" id="projects">
-        <h1 data-aos="fade-right" className="section-heading">Progetti</h1>
+      <section className={`projects max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("projects")}`} id="projects">
+        <h1 data-aos="fade-up" className="section-heading">Progetti</h1>
         <div className="max-md:px-5">
           <Projects />
           <div className="mt-6 mb-16 flex items-center justify-center md:justify-start">
             <a
-              data-aos="fade-right"
+              data-aos="fade-up"
               target="_blank"
               rel="noreferrer"
               href="https://github.com/GiuseppeF11?tab=repositories"
@@ -67,8 +93,8 @@ const RightSide = () => {
       </section>
 
       {/* CONTACT */}
-      <section className="contact max-lg:mb-10 mb-20 lg:pt-5" id="contact">
-        <h1 data-aos="fade-left" className="section-heading">Contattami</h1>
+      <section className={`contact max-lg:mb-10 mb-20 lg:pt-5 ${show("contact")}`} id="contact">
+        <h1 data-aos="fade-up" className="section-heading">Contattami</h1>
         <div className="max-md:px-5">
           <Contact />
         </div>

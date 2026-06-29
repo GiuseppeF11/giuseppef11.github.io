@@ -1,6 +1,5 @@
 import "./About.css";
 import { abouts } from "../data/about";
-import { technologies } from "../data/skills";
 
 /**
  * Parsa il testo e sostituisce le frasi indicate in `links` con:
@@ -54,16 +53,6 @@ const About = () => (
       ))}
     </div>
 
-    <div data-aos="fade-up">
-      <h1 className="section-heading">Competenze e Strumenti</h1>
-      <div className="flex flex-wrap gap-3 max-md:justify-center">
-        {technologies.map((tech, i) => (
-          <span className="badge whitespace-nowrap text-xs" key={i}>
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
   </>
 );
 
