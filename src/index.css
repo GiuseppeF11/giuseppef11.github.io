@@ -21,7 +21,6 @@ body {
         transparent 20%
       ),
       var(--background-color);
-    transition: background 0.1s ease-out;
   }
 }
 

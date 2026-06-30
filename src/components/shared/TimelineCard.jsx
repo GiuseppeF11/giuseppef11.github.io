@@ -1,14 +1,21 @@
 import "./Card.css";
 
 function TimelineCard({ item }) {
+  const openUrl = () => {
+    if (item.url) window.open(item.url, "_blank", "noreferrer");
+  };
+
   return (
     <div data-aos="fade-up">
-      <a
-        target="_blank"
-        href={item.url}
+      <div
+        role="link"
+        tabIndex={item.url ? 0 : undefined}
+        aria-label={item.url ? `Apri ${item.title}` : undefined}
+        onClick={openUrl}
+        onKeyDown={(e) => e.key === "Enter" && openUrl()}
         className={`card grid grid-flow-col gap-5 my-5 p-8 transition-all duration-300 ${
           item.image ? "card--bg" : ""
-        }`}
+        } ${item.url ? "cursor-pointer" : ""}`}
         style={item.image ? { '--tc-bg': `url(${item.image})` } : undefined}
       >
         <div className="date w-40 font-semibold h-10 text-gray-500 flex items-center overflow-hidden max-md:hidden">
@@ -28,10 +35,12 @@ function TimelineCard({ item }) {
           <div className="documentations flex flex-wrap gap-3 mb-3 max-md:justify-center">
             {item.documentations.map((doc, i) => (
               <a
+                key={i}
                 target="_blank"
                 href={doc.url}
+                rel="noreferrer"
                 className="link whitespace-nowrap text-sm flex items-center gap-2"
-                key={i}
+                onClick={(e) => e.stopPropagation()}
               >
                 <doc.Icon /> {doc.name}
               </a>
@@ -45,7 +54,7 @@ function TimelineCard({ item }) {
             ))}
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 }

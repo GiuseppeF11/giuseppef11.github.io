@@ -1,6 +1,7 @@
 import "./LeftSide.css";
 import Navbar from "./Navbar";
 import { technologies } from "../data/skills";
+import { socials } from "../data/social";
 
 const LeftSide = () => (
   <>
@@ -33,6 +34,23 @@ const LeftSide = () => (
       {/* Navbar sezioni — solo desktop */}
       <div data-aos="fade-up">
         <Navbar />
+      </div>
+
+      {/* Social links — solo desktop */}
+      <div data-aos="fade-up" className="social-row max-lg:hidden">
+        {socials.map(({ name, Icon, url }) => (
+          <a
+            key={name}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={name}
+            title={name}
+            className="social-icon"
+          >
+            <Icon />
+          </a>
+        ))}
       </div>
 
     </section>

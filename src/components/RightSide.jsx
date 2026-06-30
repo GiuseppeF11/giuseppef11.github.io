@@ -60,7 +60,7 @@ const RightSide = ({ mobileSection = "about", onSectionChange }) => {
 
         {/* ABOUT */}
         <section className={`about color-gray max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("about")}`} id="about">
-          <h1 data-aos="fade-up" className="section-heading">Chi sono</h1>
+          <h2 data-aos="fade-up" className="section-heading">Chi sono</h2>
           <div className="max-md:px-5">
             <About />
           </div>
@@ -68,7 +68,7 @@ const RightSide = ({ mobileSection = "about", onSectionChange }) => {
 
         {/* EXPERIENCES */}
         <section className={`experiences max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("experiences")}`} id="experiences">
-          <h1 data-aos="fade-up" className="section-heading">Esperienze</h1>
+          <h2 data-aos="fade-up" className="section-heading">Esperienze</h2>
           <div className="max-md:px-5">
             <Experiences />
             <div className="py-6 flex items-center justify-center md:justify-start">
@@ -88,7 +88,7 @@ const RightSide = ({ mobileSection = "about", onSectionChange }) => {
 
         {/* STUDIES */}
         <section className={`studies max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("studies")}`} id="studies">
-          <h1 data-aos="fade-up" className="section-heading">Formazione</h1>
+          <h2 data-aos="fade-up" className="section-heading">Formazione</h2>
           <div className="max-md:px-5">
             <Studies />
           </div>
@@ -96,7 +96,7 @@ const RightSide = ({ mobileSection = "about", onSectionChange }) => {
 
         {/* PROJECTS */}
         <section className={`projects max-lg:mb-10 lg:mb-16 lg:pt-5 ${show("projects")}`} id="projects">
-          <h1 data-aos="fade-up" className="section-heading">Progetti</h1>
+          <h2 data-aos="fade-up" className="section-heading">Progetti</h2>
           <div className="max-md:px-5">
             <Projects />
             <div className="mt-6 mb-16 flex items-center justify-center md:justify-start">
@@ -116,7 +116,7 @@ const RightSide = ({ mobileSection = "about", onSectionChange }) => {
 
         {/* CONTACT */}
         <section className={`contact max-lg:mb-10 mb-20 lg:pt-5 ${show("contact")}`} id="contact">
-          <h1 data-aos="fade-up" className="section-heading">Contattami</h1>
+          <h2 data-aos="fade-up" className="section-heading">Contattami</h2>
           <div className="max-md:px-5">
             <Contact />
           </div>

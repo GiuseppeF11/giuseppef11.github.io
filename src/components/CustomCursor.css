@@ -1,0 +1,29 @@
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+.c-dot,
+.c-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+}
+
+.c-dot {
+  width: 7px;
+  height: 7px;
+  background: #52ced0;
+  margin: -3.5px 0 0 -3.5px;
+}
+
+.c-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(82, 206, 208, 0.55);
+  margin: -17px 0 0 -17px;
+}

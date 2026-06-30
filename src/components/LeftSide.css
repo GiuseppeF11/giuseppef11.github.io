@@ -1,14 +1,12 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 80%;
+    gap: 28px;
 }
 
 .role {
     font-size: 22px;
     font-weight: 500;
-    margin-bottom: 20px;
 }
 
 .skills-carousel {
@@ -16,7 +14,26 @@
   overflow: clip;
   width: 100%;
   min-width: 0;
-  margin-bottom: 24px;
+}
+
+/* Social links */
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-icon {
+  color: #4b5563;
+  font-size: 22px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon:hover {
+  color: #52ced0;
+  transform: translateY(-2px);
 }
 
 /* Fade ai bordi — solo mobile */

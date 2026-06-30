@@ -50,6 +50,7 @@ function Projects() {
         <span className="search-icon">🔍</span>
         <input
           className="proj-search-input"
+          aria-label="Cerca progetti"
           placeholder="Cerca per nome, descrizione o tecnologia…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -99,7 +100,11 @@ function Projects() {
             style={{ '--tc-bg': `url(${project.image})` }}
             data-aos="fade-up"
             data-aos-delay={index * 40}
+            role="button"
+            tabIndex={0}
+            aria-label={`Apri dettagli: ${project.name}`}
             onClick={() => setModal(project)}
+            onKeyDown={(e) => e.key === "Enter" && setModal(project)}
           >
             <div className="proj-card-year">{project.date}</div>
             <div className="proj-card-body">

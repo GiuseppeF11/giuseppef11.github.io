@@ -10,7 +10,7 @@ const tabs = [
 ];
 
 const BottomNav = ({ active, onChange }) => (
-  <nav className="bottom-nav lg:hidden">
+  <nav className="bottom-nav lg:hidden" aria-label="Navigazione sezioni">
     {tabs.map(({ id, label, Icon }) => (
       <button
         key={id}
