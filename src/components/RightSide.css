@@ -73,6 +73,72 @@
   }
 }
 
+/* ── Swipe hint arrows ── */
+.swipe-hint-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 64px;
+  color: #52ced0;
+  font-size: 42px;
+  opacity: 0;
+  animation: hint-arrow-lifecycle 2.5s ease forwards;
+}
+
+.swipe-hint-arrow--left {
+  left: 0;
+  animation-name: hint-arrow-lifecycle-left;
+}
+
+.swipe-hint-arrow--right {
+  right: 0;
+  animation-name: hint-arrow-lifecycle-right;
+}
+
+@keyframes hint-arrow-lifecycle-left {
+  0%         { opacity: 0; transform: translateY(-50%) translateX(-8px); }
+  15%        { opacity: 1; transform: translateY(-50%) translateX(0); }
+  30%, 60%   { transform: translateY(-50%) translateX(-6px); opacity: 0.9; }
+  45%, 75%   { transform: translateY(-50%) translateX(2px);  opacity: 1;   }
+  85%        { opacity: 1; }
+  100%       { opacity: 0; transform: translateY(-50%) translateX(0); }
+}
+
+@keyframes hint-arrow-lifecycle-right {
+  0%         { opacity: 0; transform: translateY(-50%) translateX(8px); }
+  15%        { opacity: 1; transform: translateY(-50%) translateX(0); }
+  30%, 60%   { transform: translateY(-50%) translateX(6px);  opacity: 0.9; }
+  45%, 75%   { transform: translateY(-50%) translateX(-2px); opacity: 1;   }
+  85%        { opacity: 1; }
+  100%       { opacity: 0; transform: translateY(-50%) translateX(0); }
+}
+
+/* ── Slide animation tra sezioni (solo mobile) ── */
+@media (max-width: 1023px) {
+  .section-slide-left {
+    animation: section-from-right 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  .section-slide-right {
+    animation: section-from-left 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}
+
+@keyframes section-from-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes section-from-left {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 /* ── About paragraphs ── */
 .about p {
   margin-bottom: 20px;
