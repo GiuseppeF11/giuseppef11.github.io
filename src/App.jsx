@@ -3,7 +3,6 @@ import RightSide from "./components/RightSide.jsx";
 import LeftSide from "./components/LeftSide.jsx";
 import BottomNav from "./components/BottomNav.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
-import "./App.css";
 
 function App() {
   const [mobileSection, setMobileSection] = useState("about");

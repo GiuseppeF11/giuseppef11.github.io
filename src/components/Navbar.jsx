@@ -48,7 +48,6 @@ const Navbar = () => {
           key={section.id}
           onClick={() => handleClick(section.id)}
           className={`route flex items-center ${activeSection === section.id ? "active" : ""}`}
-          style={{ cursor: "pointer" }}
         >
           <div className="line" />
           <span>{section.name}</span>

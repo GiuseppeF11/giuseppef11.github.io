@@ -2,14 +2,6 @@
    RightSide.css — aggiornato con section-heading
    ═══════════════════════════════════════════ */
 
-/* ── sticky ── */
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
 .right-side {
   min-height: 100vh;
   overflow-x: clip;
@@ -27,8 +19,6 @@
   align-items: center !important;
   gap: 12px !important;
   padding: 10px 0 !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .section-heading::after {
