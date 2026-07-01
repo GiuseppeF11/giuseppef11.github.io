@@ -12,6 +12,7 @@
 
 .right-side {
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 /* ── Section heading (sostituisce il vecchio h1 plain) ── */
