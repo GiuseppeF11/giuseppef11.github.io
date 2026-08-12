@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import RightSide from "./components/RightSide.jsx";
 import LeftSide from "./components/LeftSide.jsx";
 import BottomNav from "./components/BottomNav.jsx";
-import CustomCursor from "./components/CustomCursor.jsx";
 
 function App() {
   const [mobileSection, setMobileSection] = useState("about");
@@ -29,7 +28,6 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
       <main className="w-full md:px-10 lg:w-3/4 lg:px-0 max-w-5xl lg:m-auto">
         <div className="grid lg:grid-cols-2 gap-5">
           <div className={`left-side lg:h-screen lg:sticky lg:top-0 min-w-0 ${mobileSection !== "about" ? "hidden lg:block" : ""}`}>
