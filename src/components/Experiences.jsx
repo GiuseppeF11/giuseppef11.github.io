@@ -6,11 +6,11 @@ const Experiences = () => {
   const sorted = sortByEndDateDesc(experiences);
 
   return (
-    <>
+    <ol className="timeline">
       {sorted.map((experience, index) => (
         <TimelineCard key={index} item={experience} />
       ))}
-    </>
+    </ol>
   );
 };
 

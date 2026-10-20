@@ -1,12 +1,90 @@
-.container {
+.left-container,
+.left-top {
     display: flex;
     flex-direction: column;
     gap: 28px;
 }
 
+/* Desktop: contenuto centrato in verticale nella colonna sticky */
+@media (min-width: 1024px) {
+  .left-container {
+    height: 100%;
+    justify-content: center;
+    padding-block: 48px;
+  }
+}
+
+.hero-name {
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
 .role {
-    font-size: 22px;
+    font-size: var(--fs-xl);
     font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.hero-tagline {
+    margin-top: 16px;
+    max-width: 38ch;
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--muted);
+    text-wrap: pretty;
+}
+
+@media (max-width: 767px) {
+  .hero-tagline {
+    margin-inline: auto;
+  }
+}
+
+/* ── CTA ── */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.hero-btn svg {
+  font-size: var(--fs-lg);
+}
+
+.hero-btn--primary {
+  background: var(--accent);
+  color: var(--night);
+  border: 1px solid var(--accent);
+}
+
+.hero-btn--primary:hover {
+  background: rgb(var(--accent-rgb) / 0.85);
+}
+
+.hero-btn--ghost {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.hero-btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-btn:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .skills-carousel {
@@ -14,26 +92,6 @@
   overflow: clip;
   width: 100%;
   min-width: 0;
-}
-
-/* Social links */
-.social-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.social-icon {
-  color: #4b5563;
-  font-size: 22px;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-}
-
-.social-icon:hover {
-  color: #52ced0;
-  transform: translateY(-2px);
 }
 
 /* Fade ai bordi — solo mobile */
@@ -51,12 +109,12 @@
 
   .skills-carousel::before {
     left: 0;
-    background: linear-gradient(to right, #0f172a, transparent);
+    background: linear-gradient(to right, var(--night), transparent);
   }
 
   .skills-carousel::after {
     right: 0;
-    background: linear-gradient(to left, #0f172a, transparent);
+    background: linear-gradient(to left, var(--night), transparent);
   }
 }
 

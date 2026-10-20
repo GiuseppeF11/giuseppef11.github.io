@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+   Unica fonte per colori, testo e raggi: usarli sia nel CSS (var(--…))
+   sia in Tailwind (bg-night, text-accent, rounded-card…).
+   Le varianti *-rgb servono per le trasparenze: rgb(var(--accent-rgb) / 0.4)
+   ═══════════════════════════════════════════ */
+:root {
+  /* Colori */
+  --night-rgb: 15 23 42;      /* sfondo pagina */
+  --surface-rgb: 13 22 40;    /* modale e superfici sopraelevate */
+  --line-rgb: 24 55 86;       /* bordi, divisori, fondo badge */
+  --accent-rgb: 82 206 208;   /* ciano d'accento */
+  --ink-rgb: 240 248 255;     /* testo principale */
+  --muted-rgb: 156 163 175;   /* testo secondario */
+  --subtle-rgb: 107 114 128;  /* testo terziario, elementi inattivi */
+  --glow-rgb: 23 60 146;      /* alone che segue il mouse */
+
+  --night: rgb(var(--night-rgb));
+  --surface: rgb(var(--surface-rgb));
+  --line: rgb(var(--line-rgb));
+  --accent: rgb(var(--accent-rgb));
+  --ink: rgb(var(--ink-rgb));
+  --muted: rgb(var(--muted-rgb));
+  --subtle: rgb(var(--subtle-rgb));
+
+  /* Colori dei gruppi di skill */
+  --tag-core-rgb: var(--accent-rgb);
+  --tag-frontend-rgb: 129 140 248;
+  --tag-devops-rgb: 52 211 153;
+  --tag-other-rgb: 251 191 36;
+  --tag-ai-rgb: 192 132 252;
+
+  /* Scala tipografica (allineata a quella di Tailwind) */
+  --fs-2xs: 0.6875rem;  /* 11px — etichette, meta */
+  --fs-xs: 0.75rem;     /* 12px */
+  --fs-sm: 0.875rem;    /* 14px */
+  --fs-base: 1rem;      /* 16px */
+  --fs-lg: 1.125rem;    /* 18px */
+  --fs-xl: 1.25rem;     /* 20px */
+  --fs-2xl: 1.5rem;     /* 24px */
+  --fs-3xl: 1.875rem;   /* 30px — titoli di sezione */
+
+  /* Raggi */
+  --radius-sm: 8px;     /* controlli piccoli */
+  --radius-md: 12px;    /* card, input, CTA */
+  --radius-lg: 20px;    /* modale */
+  --radius-pill: 999px; /* badge, filtri, chip */
+
+  --gradient-position-x: 0px;
+  --gradient-position-y: 0px;
+
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -17,48 +72,38 @@ html, body {
 }
 
 body {
-  background: var(--background-color);
+  background: var(--night);
 }
 
 @media (min-width: 1024px) {
   body {
     background: radial-gradient(
         circle at var(--gradient-position-x) var(--gradient-position-y),
-        rgba(23, 60, 146, 0.633),
+        rgb(var(--glow-rgb) / 0.633),
         transparent 20%
       ),
-      var(--background-color);
+      var(--night);
   }
-}
-
-
-
-:root {
-  color: aliceblue;
-  --background-color: #0f172a;
-  --gradient-position-x: 0px;
-  --gradient-position-y: 0px;
-  font-family: "Space Grotesk", sans-serif;
 }
 
 /* PALETTE */
 .color-white {
-  color: aliceblue;
+  color: var(--ink);
 }
 
 .color-gray {
-  color: #9ca3af;
+  color: var(--muted);
 }
 
 .color-water {
-  color: #52ced0;
+  color: var(--accent);
 }
 
 /* SCROLLBAR */
 
 body {
-  --sb-track-color: #0f172a;
-  --sb-thumb-color: #52ced0;
+  --sb-track-color: var(--night);
+  --sb-thumb-color: var(--accent);
   --sb-size: 7px;
 }
 

@@ -6,17 +6,16 @@
 //   title: "Titolo Corso / Laurea / Diploma",
 //   agency: "Nome Istituto",
 //   details: "Breve descrizione (lascia stringa vuota se non serve)",
-//   image: require("../assets/..."),  // OPZIONALE — immagine di sfondo della card
+//   logo: ImportedLogo,         // OPZIONALE — logo quadrato (es. 96x96 .webp in assets/logos); senza logo si mostrano le iniziali
 //   documentations: [{ Icon: ComponenteIcona, name: "Etichetta", url: "https://..." }],
 //   categories: ["Materia1", "Materia2"],
 // }
 
 import { TbCertificate } from "react-icons/tb";
 import Boolean_Certificate from "../assets/documents/Certificato Boolean.jpg";
-import SteveJobsBG from "../assets/studies/steve_jobs_bg.png";
-import BooleanBG from "../assets/studies/boolean_bg.png";
-import BiotechBG from "../assets/studies/biotech_bg.png";
-import LiceoBG from "../assets/studies/liceo_bg.webp";
+import LogoSteveJobs from "../assets/logos/steve-jobs-academy.webp";
+import LogoBoolean from "../assets/logos/boolean.webp";
+import LogoUnict from "../assets/logos/unict.webp";
 
 export const studies = [
   {
@@ -29,7 +28,7 @@ export const studies = [
       "Corso di 1080 ore di lezioni per la progettazione ed implementazione di soluzioni web, mobile app e sistemi in cloud.",
     documentations: [],
     categories: ["React", "Node Js", "Flutter", "MongoDB", "C", "PHP", "Typescript"],
-    image: SteveJobsBG,
+    logo: LogoSteveJobs,
   },
   {
     start: "10/2023",
@@ -43,7 +42,7 @@ export const studies = [
       { Icon: TbCertificate, name: "Certificato", url: Boolean_Certificate },
     ],
     categories: ["HTML", "CSS", "JavaScript", "Laravel", "Vue.js", "PHP", "MySQL"],
-    image: BooleanBG,
+    logo: LogoBoolean,
   },
   {
     start: "10/2020",
@@ -61,7 +60,7 @@ export const studies = [
       "Informatica",
       "Matematica",
     ],
-    image: BiotechBG,
+    logo: LogoUnict,
   },
   {
     start: "2014",
@@ -72,6 +71,5 @@ export const studies = [
     details: "100/100",
     documentations: [],
     categories: [],
-    image: LiceoBG,
   },
 ];

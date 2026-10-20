@@ -17,13 +17,13 @@
 .c-dot {
   width: 7px;
   height: 7px;
-  background: #52ced0;
+  background: var(--accent);
   margin: -3.5px 0 0 -3.5px;
 }
 
 .c-ring {
   width: 34px;
   height: 34px;
-  border: 1.5px solid rgba(82, 206, 208, 0.55);
+  border: 1.5px solid rgb(var(--accent-rgb) / 0.55);
   margin: -17px 0 0 -17px;
 }

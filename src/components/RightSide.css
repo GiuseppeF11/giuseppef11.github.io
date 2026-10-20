@@ -5,62 +5,89 @@
 .right-side {
   min-height: 100vh;
   overflow-x: clip;
+  counter-reset: section;
 }
 
-/* ── Section heading (sostituisce il vecchio h1 plain) ── */
+/* ── Section heading ── */
 .section-heading {
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: #52ced0 !important;
-  margin-bottom: 28px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  padding: 10px 0 !important;
+  counter-increment: section;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .section-heading::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, rgba(82, 206, 208, 0.35), transparent);
+  background: linear-gradient(to right, rgb(var(--accent-rgb) / 0.35), transparent);
 }
 
-/* ── Phone + Tablet (< 1024px): sticky heading con blur ── */
+/* ── Desktop: titolo grande preceduto dal numero di sezione ── */
+@media (min-width: 1024px) {
+  .section-heading {
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 32px;
+    padding: 8px 0;
+    gap: 16px;
+  }
+
+  .section-heading::before {
+    content: counter(section, decimal-leading-zero);
+    align-self: flex-start;
+    margin-top: 0.35em;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+
+  .section-heading::after {
+    margin-left: 8px;
+  }
+}
+
+/* ── Phone + Tablet (< 1024px): etichetta sticky con blur ── */
 @media (max-width: 1023px) {
   .section-heading {
     position: sticky;
     top: 0;
     z-index: 50;
-    padding: 12px 0 !important;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    margin-bottom: 20px !important;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 12px 0;
+    background: rgb(var(--night-rgb) / 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin-bottom: 20px;
   }
 }
 
 /* ── Phone only (< 768px): heading centrato, più grande e prominente ── */
 @media (max-width: 767px) {
   .section-heading {
-    font-size: 14px !important;
-    letter-spacing: 0.18em !important;
-    padding: 14px 1.25rem !important;
-    justify-content: center !important;
-    margin-bottom: 24px !important;
+    font-size: var(--fs-sm);
+    letter-spacing: 0.18em;
+    padding: 14px 1.25rem;
+    justify-content: center;
+    margin-bottom: 24px;
   }
 
   .section-heading::before {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(82, 206, 208, 0.5));
+    background: linear-gradient(to right, transparent, rgb(var(--accent-rgb) / 0.5));
   }
 
   .section-heading::after {
-    background: linear-gradient(to right, rgba(82, 206, 208, 0.5), transparent);
+    background: linear-gradient(to right, rgb(var(--accent-rgb) / 0.5), transparent);
   }
 }
 
@@ -76,7 +103,7 @@
   justify-content: center;
   width: 40px;
   height: 64px;
-  color: #52ced0;
+  color: var(--accent);
   font-size: 42px;
   opacity: 0;
   animation: hint-arrow-lifecycle 2.5s ease forwards;
@@ -132,7 +159,15 @@
 
 /* ── About paragraphs ── */
 .about p {
+  max-width: 65ch;
   margin-bottom: 20px;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.about p:first-child {
+  font-size: var(--fs-lg);
+  color: var(--ink);
 }
 
 @media (max-width: 767px) {
@@ -142,31 +177,39 @@
 }
 
 /* ── Badge ── */
+/* Senza gruppo il badge usa l'accento; badge-<gruppo> cambia solo --badge-rgb */
 .badge {
-  background-color: #183756;
-  color: #53ced0;
+  --badge-rgb: var(--accent-rgb);
+  color: rgb(var(--badge-rgb));
+  background-color: var(--line);
   padding: 5px 15px;
-  border-radius: 15px;
+  border-radius: var(--radius-pill);
   letter-spacing: 0.04em;
   border: 1px solid transparent;
   transition: border-color 0.2s;
 }
 
 .badge:hover {
-  border-color: rgba(82, 206, 208, 0.4);
+  border-color: rgb(var(--badge-rgb) / 0.4);
 }
+
+.badge-core     { --badge-rgb: var(--tag-core-rgb); }
+.badge-frontend { --badge-rgb: var(--tag-frontend-rgb); }
+.badge-devops   { --badge-rgb: var(--tag-devops-rgb); }
+.badge-other    { --badge-rgb: var(--tag-other-rgb); }
+.badge-ai       { --badge-rgb: var(--tag-ai-rgb); }
 
 /* ── Timeline / Project card links ── */
 .experiences .link,
 .projects .link {
-  color: aliceblue;
+  color: var(--ink);
   font-weight: 600;
   transition: 0.1s linear;
 }
 
 .experiences .link:hover,
 .projects .link:hover {
-  color: #54d3d4;
+  color: var(--accent);
 }
 
 /* ── View more link ── */
@@ -175,12 +218,12 @@
 }
 
 .view-more .text {
-  border-bottom: 1px solid #183756;
+  border-bottom: 1px solid var(--line);
   transition: 0.3s linear;
 }
 
 .view-more:hover .text {
-  border-bottom: 1px solid #53ced0;
+  border-bottom: 1px solid var(--accent);
 }
 
 .view-more:hover .icon {

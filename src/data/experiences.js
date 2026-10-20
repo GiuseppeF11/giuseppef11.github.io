@@ -6,18 +6,28 @@
 //   title: "Titolo Ruolo",
 //   agency: "Nome Azienda",
 //   details: "Breve descrizione dell'azienda o del ruolo",
-//   image: require("../assets/..."),  // OPZIONALE — immagine di sfondo della card
+//   logo: ImportedLogo,         // OPZIONALE — logo quadrato (es. 96x96 .webp in assets/logos); senza logo si mostrano le iniziali
 //   documentations: [{ Icon: ComponenteIcona, name: "Etichetta", url: "https://..." }],
 //   categories: ["Skill1", "Skill2"],
 // }
 
 import { TbCertificate } from "react-icons/tb";
 import HDI_Certificate from "../assets/documents/HDI.jpeg";
-import DashboardVideo from "../assets/projects/DashboardVideo.gif";
-import InsuranceBG from "../assets/experiences/insurance_bg.jpg";
-import ServizioCivileBG from "../assets/experiences/servizio_civile_bg.webp";
+import LogoMetEvolution from "../assets/logos/met-evolution.webp";
+import LogoMisericordia from "../assets/logos/misericordia.webp";
 
 export const experiences = [
+  {
+    start: "09/2026",
+    end: "In corso",
+    url: "https://www.metevolution.it/",
+    title: "Technical Support Specialist & Tutor",
+    agency: "MET-EVOLUTION SRL",
+    details: "Coordinamento operativo e tecnico dei corsi di formazione in meteorologia su Moodle: gestione delle aule virtuali, supporto a docenti e corsisti, risoluzione delle criticità tecniche. Ottimizzazione del sito web aziendale e sviluppo di soluzioni software.",
+    documentations: [],
+    categories: ["Microsoft Excel", "Wordpress", "Moodle", "Claude"],
+    logo: LogoMetEvolution
+  },
   {
     start: "03/2025",
     end: "04/2026",
@@ -27,7 +37,6 @@ export const experiences = [
     details: "Piattaforma SaaS di Workforce e Vendor Management basata su AI per la ricerca, selezione e gestione delle risorse per aziende e fornitori di servizi professionali",
     documentations: [],
     categories: ["PHP", "Laravel", "Docker", "AWS"],
-    image: DashboardVideo
   },
   {
     start: "09/2022",
@@ -40,7 +49,6 @@ export const experiences = [
       { Icon: TbCertificate, name: "Certificato", url: HDI_Certificate },
     ],
     categories: ["Consulenza", "Vendita", "Time Management", "Problem Solving"],
-    image: InsuranceBG,
   },
   {
     start: "2020",
@@ -51,6 +59,6 @@ export const experiences = [
     details: "Servizio come ambulanziere e trasporto disabili",
     documentations: [],
     categories: ["First Aid", "CPR", "BLS", "Driving Skills", "Stress Management"],
-    image: ServizioCivileBG
+    logo: LogoMisericordia,
   },
 ];

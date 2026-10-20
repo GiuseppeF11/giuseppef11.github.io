@@ -1,12 +1,12 @@
 /* Parola enfatizzata (url: "#") — bold bianco, non cliccabile */
 .about-highlight {
-  color: aliceblue;
+  color: var(--ink);
   font-weight: 600;
 }
 
 /* Link reale (url non "#") — cyan + sottolineatura al hover */
 .about-link {
-  color: #52ced0;
+  color: var(--accent);
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -14,5 +14,5 @@
 }
 
 .about-link:hover {
-  border-bottom-color: #52ced0;
+  border-bottom-color: var(--accent);
 }

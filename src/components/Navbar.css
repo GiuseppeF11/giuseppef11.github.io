@@ -9,8 +9,8 @@
   align-items: center;
   gap: 18px;
   padding: 5px 0;
-  color: #4b5563;
-  font-size: 13px;
+  color: var(--subtle);
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -19,15 +19,22 @@
   user-select: none;
 }
 
-.route:hover {
-  color: #9ca3af;
+.route:hover,
+.route:focus-visible {
+  color: var(--muted);
+}
+
+.route:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .route.active {
-  color: #52ced0;
+  color: var(--accent);
 }
 
-.line {
+.route-line {
   flex-shrink: 0;
   height: 1px;
   background-color: currentColor;
@@ -36,13 +43,13 @@
   opacity: 0.35;
 }
 
-.route:hover .line {
+.route:hover .route-line {
   width: 40px;
   opacity: 0.65;
 }
 
-.route.active .line {
+.route.active .route-line {
   width: 56px;
   opacity: 1;
-  box-shadow: 0 0 6px rgba(82, 206, 208, 0.55);
+  box-shadow: 0 0 6px rgb(var(--accent-rgb) / 0.55);
 }

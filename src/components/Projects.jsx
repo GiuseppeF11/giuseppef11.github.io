@@ -1,15 +1,43 @@
 import { useState, useEffect } from "react";
 import "./Projects.css";
 import "./shared/Card.css";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import { MdOutlineArrowOutward, MdSearch, MdClose, MdSearchOff, MdOutlineMenuBook } from "react-icons/md";
 import { projects } from "../data/projects";
 
 const FILTER_TAGS = ["Tutti", "React.js", "Vue.js", "Laravel", "JavaScript", "HTML", "CSS", "Docker", "AWS", "Claude"];
+
+const reducedMotion = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Anteprima animata: WebM (più leggero) con fallback MP4, il poster resta visibile finché carica
+function ProjectVideo({ video, poster, className, controls = false }) {
+  return (
+    <video
+      className={className}
+      poster={poster}
+      autoPlay={!controls}
+      controls={controls}
+      muted
+      loop
+      playsInline
+      aria-hidden={!controls}
+    >
+      <source src={video.webm} type="video/webm" />
+      <source src={video.mp4} type="video/mp4" />
+    </video>
+  );
+}
 
 function Projects() {
   const [search, setSearch] = useState("");
   const [activeTags, setActiveTags] = useState([]);
   const [modal, setModal] = useState(null);
+  // Il video della card viene montato (e scaricato) solo al passaggio del mouse
+  const [previewing, setPreviewing] = useState(null);
+
+  const startPreview = (project) => {
+    if (project.video && !reducedMotion()) setPreviewing(project.name);
+  };
 
   const toggleTag = (tag) => {
     if (tag === "Tutti") { setActiveTags([]); return; }
@@ -47,7 +75,7 @@ function Projects() {
     <>
       {/* ── Barra di ricerca ── */}
       <div className="proj-search-row" data-aos="fade-up">
-        <span className="search-icon">🔍</span>
+        <span className="search-icon" aria-hidden="true"><MdSearch /></span>
         <input
           className="proj-search-input"
           aria-label="Cerca progetti"
@@ -56,8 +84,8 @@ function Projects() {
           onChange={(e) => setSearch(e.target.value)}
         />
         {search && (
-          <button className="search-clear" onClick={() => setSearch("")}>
-            ✕
+          <button className="search-clear" aria-label="Cancella ricerca" onClick={() => setSearch("")}>
+            <MdClose aria-hidden="true" />
           </button>
         )}
       </div>
@@ -89,15 +117,14 @@ function Projects() {
       <div className="proj-grid">
         {filtered.length === 0 && (
           <div className="proj-empty" data-aos="fade-up">
-            <div className="proj-empty-icon">🔭</div>
+            <MdSearchOff className="proj-empty-icon" aria-hidden="true" />
             Nessun progetto trovato per questa ricerca.
           </div>
         )}
         {filtered.map((project, index) => (
           <div
             key={index}
-            className="proj-card card card--bg"
-            style={{ '--tc-bg': `url(${project.image})` }}
+            className="proj-card card"
             data-aos="fade-up"
             data-aos-delay={index * 40}
             role="button"
@@ -105,8 +132,28 @@ function Projects() {
             aria-label={`Apri dettagli: ${project.name}`}
             onClick={() => setModal(project)}
             onKeyDown={(e) => e.key === "Enter" && setModal(project)}
+            onMouseEnter={() => startPreview(project)}
+            onMouseLeave={() => setPreviewing(null)}
+            onFocus={() => startPreview(project)}
+            onBlur={() => setPreviewing(null)}
           >
-            <div className="proj-card-year">{project.date}</div>
+            <div className="proj-card-thumb">
+              <img
+                src={project.image}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="proj-card-img"
+              />
+              {previewing === project.name && (
+                <ProjectVideo
+                  video={project.video}
+                  poster={project.image}
+                  className="proj-card-img proj-card-video"
+                />
+              )}
+              <div className="proj-card-year">{project.date}</div>
+            </div>
             <div className="proj-card-body">
               <h3 className="proj-card-name title">
                 {project.name.length > 30
@@ -137,11 +184,20 @@ function Projects() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="proj-modal-img-wrap">
-              <img
-                src={modal.image}
-                alt={modal.name}
-                className="proj-modal-img"
-              />
+              {modal.video ? (
+                <ProjectVideo
+                  video={modal.video}
+                  poster={modal.image}
+                  className="proj-modal-img"
+                  controls={reducedMotion()}
+                />
+              ) : (
+                <img
+                  src={modal.image}
+                  alt={modal.name}
+                  className="proj-modal-img"
+                />
+              )}
               <div className="proj-modal-img-overlay" />
             </div>
             <div className="proj-modal-body">
@@ -169,7 +225,7 @@ function Projects() {
                         rel="noreferrer"
                         className="link whitespace-nowrap text-sm flex items-center gap-2"
                       >
-                        ⌥ {doc.name}
+                        <MdOutlineMenuBook aria-hidden="true" /> {doc.name}
                       </a>
                     ))}
                   </div>
@@ -182,13 +238,13 @@ function Projects() {
                   rel="noreferrer"
                   className="proj-modal-btn-primary"
                 >
-                  ↗ Visita progetto
+                  <MdOutlineArrowOutward aria-hidden="true" /> Visita progetto
                 </a>
                 <button
                   className="proj-modal-btn-close"
                   onClick={() => setModal(null)}
                 >
-                  ✕ Chiudi
+                  <MdClose aria-hidden="true" /> Chiudi
                 </button>
               </div>
             </div>

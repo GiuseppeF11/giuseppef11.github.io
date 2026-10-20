@@ -1,38 +1,64 @@
 import "./Card.css";
+import "./Timeline.css";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
+const IN_PROGRESS = "In corso";
+
+// Iniziali dell'ente quando manca il logo: "Università di Catania" → "UC", "Timeflow Srl" → "T"
+function initials(name) {
+  return name
+    .replace(/['"]/g, "")
+    .split(/\s+/)
+    .filter((w) => /^\p{Lu}/u.test(w) && !/^(srl|s\.r\.l\.|spa)$/i.test(w))
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("");
+}
 
 function TimelineCard({ item }) {
+  const current = item.end === IN_PROGRESS;
+
   const openUrl = () => {
     if (item.url) window.open(item.url, "_blank", "noreferrer");
   };
 
   return (
-    <div data-aos="fade-up">
+    <li className={`timeline-item${current ? " timeline-item--current" : ""}`} data-aos="fade-up">
+      <span className="timeline-dot" aria-hidden="true" />
+
       <div
-        role="link"
+        role={item.url ? "link" : undefined}
         tabIndex={item.url ? 0 : undefined}
-        aria-label={item.url ? `Apri ${item.title}` : undefined}
+        aria-label={item.url ? `${item.title} — ${item.agency}` : undefined}
         onClick={openUrl}
         onKeyDown={(e) => e.key === "Enter" && openUrl()}
-        className={`card grid grid-flow-col gap-5 my-5 p-8 transition-all duration-300 ${
-          item.image ? "card--bg" : ""
-        } ${item.url ? "cursor-pointer" : ""}`}
-        style={item.image ? { '--tc-bg': `url(${item.image})` } : undefined}
+        className={`card timeline-card${item.url ? "" : " timeline-card--static"}`}
       >
-        <div className="date w-40 font-semibold h-10 text-gray-500 flex items-center overflow-hidden max-md:hidden">
-          {item.start}
-          <span className="line bg-gray-500"></span>
-          {item.end}
-        </div>
-        <div>
-          <h3 className="title text-lg font-bold">{item.title}</h3>
-          <h5 className="text-sm font-semibold text-gray-400 md:mb-5">{item.agency}</h5>
-          <div className="date font-semibold h-10 text-gray-500 flex items-center justify-center overflow-hidden mb-4 md:hidden">
-            {item.start}
-            <span className="line bg-gray-500"></span>
-            {item.end}
+        <p className="timeline-date">
+          <time>{item.start}</time>
+          <span aria-hidden="true"> — </span>
+          <time className={current ? "timeline-date--current" : undefined}>{item.end}</time>
+        </p>
+
+        <div className="timeline-head">
+          <div className="timeline-logo" aria-hidden="true">
+            {item.logo ? <img src={item.logo} alt="" loading="lazy" /> : initials(item.agency)}
           </div>
-          <p className="text-sm mb-3">{item.details}</p>
-          <div className="documentations flex flex-wrap gap-3 mb-3 max-md:justify-center">
+          <div className="min-w-0">
+            <h3 className="title timeline-title">
+              {item.title}
+              {item.url && (
+                <MdOutlineArrowOutward className="timeline-arrow" aria-hidden="true" />
+              )}
+            </h3>
+            <p className="timeline-agency">{item.agency}</p>
+          </div>
+        </div>
+
+        {item.details && <p className="timeline-details">{item.details}</p>}
+
+        {item.documentations.length > 0 && (
+          <div className="documentations flex flex-wrap gap-3 mb-3">
             {item.documentations.map((doc, i) => (
               <a
                 key={i}
@@ -42,20 +68,23 @@ function TimelineCard({ item }) {
                 className="link whitespace-nowrap text-sm flex items-center gap-2"
                 onClick={(e) => e.stopPropagation()}
               >
-                <doc.Icon /> {doc.name}
+                <doc.Icon aria-hidden="true" /> {doc.name}
               </a>
             ))}
           </div>
-          <div className="categories flex flex-wrap gap-3 max-md:justify-center">
+        )}
+
+        {item.categories.length > 0 && (
+          <div className="flex flex-wrap gap-2">
             {item.categories.map((category, i) => (
               <span className="badge whitespace-nowrap text-xs" key={i}>
                 {category}
               </span>
             ))}
           </div>
-        </div>
+        )}
       </div>
-    </div>
+    </li>
   );
 }
 
