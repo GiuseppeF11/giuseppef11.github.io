@@ -19,15 +19,22 @@
   user-select: none;
 }
 
-.route:hover {
+.route:hover,
+.route:focus-visible {
   color: #9ca3af;
+}
+
+.route:focus-visible {
+  outline: 1px solid #52ced0;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .route.active {
   color: #52ced0;
 }
 
-.line {
+.route-line {
   flex-shrink: 0;
   height: 1px;
   background-color: currentColor;
@@ -36,12 +43,12 @@
   opacity: 0.35;
 }
 
-.route:hover .line {
+.route:hover .route-line {
   width: 40px;
   opacity: 0.65;
 }
 
-.route.active .line {
+.route.active .route-line {
   width: 56px;
   opacity: 1;
   box-shadow: 0 0 6px rgba(82, 206, 208, 0.55);

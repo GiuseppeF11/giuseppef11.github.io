@@ -4,7 +4,7 @@ import { technologies } from "../data/skills";
 import { socials } from "../data/social";
 
 const LeftSide = () => (
-    <section className="container pt-14 md:pt-20 max-md:px-5">
+    <section className="left-container pt-14 md:pt-20 max-md:px-5">
 
       {/* Nome e ruolo */}
       <div className="tracking-wider max-md:text-center">

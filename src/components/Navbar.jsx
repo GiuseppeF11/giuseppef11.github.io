@@ -37,19 +37,22 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClick = (id) => {
+  const handleClick = (e, id) => {
+    e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <nav className="routes-list max-lg:hidden">
+    <nav className="routes-list max-lg:hidden" aria-label="Sezioni">
       {sections.map((section) => (
         <a
           key={section.id}
-          onClick={() => handleClick(section.id)}
+          href={`#${section.id}`}
+          onClick={(e) => handleClick(e, section.id)}
+          aria-current={activeSection === section.id ? "true" : undefined}
           className={`route flex items-center ${activeSection === section.id ? "active" : ""}`}
         >
-          <div className="line" />
+          <div className="route-line" />
           <span>{section.name}</span>
         </a>
       ))}
