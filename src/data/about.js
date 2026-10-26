@@ -4,50 +4,40 @@
 // Per aggiungere un paragrafo, copia lo schema: { text: "...", links: [{ word: "...", url: "..." }] }
 export const abouts = [
   {
-    text: "Nato a Catania il 10 dicembre 2000, sono sempre stato estremamente curioso. Questa curiosità ha trovato la sua massima espressione nella tecnologia e nelle sue molteplici sfaccettature.",
+    text: "Nato a Catania nel 2000, sono sempre stato mosso da una forte curiosità. Prima di avvicinarmi allo sviluppo ho vissuto esperienze molto diverse — lavori manuali, servizio sulle ambulanze durante il COVID — che mi hanno insegnato ad adattarmi, gestire la pressione e relazionarmi con le persone in modo concreto ed empatico.",
     links: [
-      { word: "tecnologia", url: "#" },
+      { word: "curiosità", url: "#" },
     ],
   },
   {
-    text: "Nel mio percorso ho fatto un po’ di tutto: studiato, svolto lavori manuali, prestato servizio sulle ambulanze durante il periodo COVID. Esperienze diverse tra loro, ma che mi hanno insegnato ad adattarmi, a gestire la pressione e soprattutto a relazionarmi con le persone in modo concreto ed empatico.",
+    text: "Dal 2022 al 2023 ho lavorato come consulente in un'agenzia assicurativa, affinando la capacità di ascoltare, capire i problemi e proporre soluzioni mirate. Un'esperienza che si è rivelata preziosa anche nel lavoro tecnico.",
     links: [
-      { word: "adattarmi", url: "#" },
-      { word: "gestire la pressione", url: "#" },
+      { word: "proporre soluzioni mirate", url: "#" },
     ],
   },
   {
-    text: "Dal 2022 al 2023 ho lavorato presso un’agenzia di consulenza assicurativa, concentrandomi sulle esigenze dei clienti. In questo contesto ho sviluppato competenze che vanno oltre l’aspetto tecnico: ho imparato ad ascoltare, comprendere i problemi e proporre soluzioni efficaci e mirate.",
+    text: "Tra il 2023 e il 2024 ho scelto di investire in competenze tecniche concrete, frequentando il corso Full Stack con Boolean e proseguendo all'ITS Steve Jobs Academy. È in questo periodo che Timeflow Srl mi ha contattato per iniziare la mia carriera da Junior Backend Developer.",
     links: [
-      { word: "agenzia di consulenza assicurativa", url: "#" },
-      { word: "proporre soluzioni", url: "#" },
-    ],
-  },
-  {
-    text: "Tra il 2023 ed il 2024 ho deciso di unire queste capacità a competenze tecniche concrete, iniziando un percorso di formazione in web development con Boolean. 6 mesi durante i quali ho avuto modo di diventare autonomo e costruire le prime basi da Full Stack.",
-    links: [
-      { word: "competenze tecniche concrete", url: "#" },
       { word: "Boolean", url: "https://boolean.careers" },
-    ],
-  },
-    {
-    text: "Tra novembre 2024 e marzo 2025 ho frequentato l’ITS Steve Jobs Academy con l’obiettivo di consolidare ulteriormente le mie competenze. Proprio in questo periodo vengo contattato da Timeflow Srl, dove inizio la mia carriera da Junior Backend Developer.",
-    links: [
       { word: "Timeflow Srl", url: "https://timeflow.it/" },
-      { word: "Junior Backend Developer", url: "#" },
     ],
   },
   {
-    text: "In Timeflow ho avuto l’opportunità di immergermi nelle dinamiche di una startup, lavorando per sprint e collaborando con team di design e frontend. Ho utilizzato strumenti come ClickUp per la gestione delle attività e tecnologie come Docker e AWS per lo sviluppo e il deploy. Mi sono occupato in autonomia della gestione delle release, seguendo l’intero processo: dall’analisi tecnica fino al rilascio finale. Inoltre, ho gestito task legati a segnalazioni e problematiche, proponendo soluzioni rapide basate su analisi approfondite e concrete.",
+    text: "In Timeflow ho lavorato per sprint in una startup SaaS, collaborando con i team di design e frontend. Ho gestito in autonomia analisi tecniche, rilasci e segnalazioni, usando Laravel, Docker e AWS.",
     links: [
-      { word: "Timeflow", url: "https://timeflow.it/" },
       { word: "autonomia", url: "#" },
     ],
   },
   {
-    text: "Il mio obiettivo è di continuare a crescere come professionista in contesti sfidanti. Imparare, ampliando costantemente le mie competenze, per poter essere figura di riferimento all’interno di team strutturati e orientati all’innovazione.",
+    text: "Da settembre 2026 sono Technical Support Specialist & Tutor in MET-EVOLUTION: coordino i corsi di formazione in meteorologia su Moodle, supporto docenti e corsisti e contribuisco allo sviluppo del sito aziendale.",
     links: [
-      { word: "figura di riferimento", url: "#" },
+      { word: "MET-EVOLUTION", url: "https://www.metevolution.it/" },
+    ],
+  },
+  {
+    text: "Nel tempo libero costruisco progetti personali: l'ultimo è DiTacco, una web app PWA per organizzare tornei di calcetto tra amici. Il mio obiettivo è continuare a crescere in contesti sfidanti, puntando a diventare una figura di riferimento in team strutturati e orientati all'innovazione.",
+    links: [
+      { word: "DiTacco", url: "https://ditacco.it" },
     ],
   },
 ];
