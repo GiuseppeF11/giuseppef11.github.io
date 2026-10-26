@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import "./Projects.css";
 import "./shared/Card.css";
 import { MdOutlineArrowOutward, MdSearch, MdClose, MdSearchOff, MdOutlineMenuBook } from "react-icons/md";
@@ -176,8 +177,8 @@ function Projects() {
         ))}
       </div>
 
-      {/* ── Modal ── */}
-      {modal && (
+      {/* ── Modal (portal → document.body, bypassa transform degli antenati) ── */}
+      {modal && createPortal(
         <div className="proj-modal-backdrop" onClick={() => setModal(null)}>
           <div
             className="proj-modal-box"
@@ -249,7 +250,8 @@ function Projects() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
