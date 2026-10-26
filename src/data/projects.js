@@ -15,6 +15,7 @@
 //   ffmpeg -i X.gif -vf "<stesso filtro>" -an -c:v libx264 -crf 27 -pix_fmt yuv420p -movflags +faststart X.mp4
 //   ffmpeg -i X.gif -vf "scale=1280:1280:force_original_aspect_ratio=decrease" -frames:v 1 -c:v libwebp -quality 80 X-poster.webp
 
+import DiTacco from "../assets/projects/DiTacco.png";
 import CurrencyConverter from "../assets/projects/Currency Converter.png";
 import Fastbites from "../assets/projects/Fastbites.png";
 import Meridiano from "../assets/projects/Meridiano.png";
@@ -36,6 +37,20 @@ import CinovaWebm from "../assets/projects/Cinova.webm";
 import CinovaMp4 from "../assets/projects/Cinova.mp4";
 
 export const projects = [
+  {
+    date: "2026",
+    name: "DiTacco",
+    description:
+      "Web app PWA per organizzare tornei di calcetto tra amici: rose settimanali, classifica stile Serie A, marcatori, storico partite e MVP.",
+    link: "https://ditacco.it",
+    image: DiTacco,
+    documentations: [
+      { name: "Supabase", url: "https://supabase.com/" },
+      { name: "TanStack Query", url: "https://tanstack.com/query" },
+      { name: "Vite PWA", url: "https://vite-pwa-org.netlify.app/" },
+    ],
+    categories: ["React.js", "TypeScript", "Supabase", "PWA"],
+  },
   {
     date: "2026",
     name: "GF1",
