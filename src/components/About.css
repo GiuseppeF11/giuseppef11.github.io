@@ -16,3 +16,54 @@
 .about-link:hover {
   border-bottom-color: var(--accent);
 }
+
+/* Marker numerico nel cerchio (sostituisce il logo azienda) */
+.about-marker {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chip "In corso" per il paragrafo MetEvolution */
+.about-current-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgb(52 211 153);
+  background: rgb(52 211 153 / 0.12);
+  border: 1px solid rgb(52 211 153 / 0.3);
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+  margin-top: 4px;
+}
+
+.about-current-chip::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(52 211 153);
+  box-shadow: 0 0 6px rgb(52 211 153 / 0.7);
+  animation: about-pulse 2s ease-in-out infinite;
+}
+
+@keyframes about-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Reset stili .about p da RightSide.css per i paragrafi dentro le card */
+.about .about-text {
+  max-width: none;
+  margin-bottom: 0;
+  text-align: left;
+  line-height: 1.7;
+  color: rgb(var(--muted-rgb));
+  font-size: var(--fs-sm);
+}
